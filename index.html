@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://kit.fontawesome.com/efd92865ea.js" crossorigin="anonymous"></script>
+	<style type="text/css">
+        *{margin:0;padding:0;}
+		h1
+		{
+			text-align: center;
+		}
+		.container
+		{
+			width: 80%;
+			position: relative;
+			left:10%;
+			/*border:1px solid black;*/
+			height: auto;
+		}
+		.heading
+		{
+			background-color: green;
+			color: white;
+			height: 10vh;
+			/*border-radius: 10px;*/
+			text-align: center;
+			padding-top: 3vh;
+			box-sizing: border-box;
+		}
+		
+		.paragraph
+		{
+			display: none;
+			/*margin-top:20px;*/
+			height: auto;
+			padding:20px 10px;
+			background-color: #eaedef;
+		}
+		.headings
+		{
+			background-color: lightgrey;
+			height: auto;
+			padding:20px 10px;
+			
+
+		}
+		
+        .rotate
+        {
+        	transform: rotate(90deg);
+        	transition: 0.5s;
+
+        }
+	</style>
+</head>
+<body>
+<h1>FAQ Slider</h1>
+<div class="container">
+	<h2 class="heading">FAQ Slider Project</h2>
+     
+      <h3 class="headings"><i class="fas fa-chevron-right"></i> How are you?</h3>
+      <p class="paragraph">I am Fine.</p>
+     
+
+      <h3 class="headings"><i class="fas fa-chevron-right"></i> who are you?</h3>
+      <p class="paragraph">I am Komal.</p>
+     
+
+      <h3 class="headings"><i class="fas fa-chevron-right"></i> where you live?</h3>
+      <p class="paragraph">I live in Pakistan.</p>
+    
+     
+      <h3 class="headings"><i class="fas fa-chevron-right"></i> what is your country name?</h3>
+      <p class="paragraph">My country name is Pakistan.</p>
+     
+    
+      <h3 class="headings"><i class="fas fa-chevron-right"></i> what is your work place?</h3>
+      <p class="paragraph">Vvork cloud technologies.</p>
+   
+    
+      <h3 class="headings"><i class="fas fa-chevron-right"></i> Are you Happy?</h3>
+      <p class="paragraph">Alhamdulillah.</p>
+     
+</div>
+<script src="jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+
+	   $('document').ready(function(){
+
+	   $('.headings').on("click",function(){ // when any of .headings is clicked call this function
+        $(this).next().slideToggle(100).siblings('.paragraph').slideUp(100); // this contains specific h3 clicked .next() gives next element to it in this case it would be specific paragraph then .siblings.slideUp(100) checks if(there is any .paragraph class(in siblings of paragraph selected through .next()) elements opened it closes it or slides it up)
+        console.log(this);
+        var icon=$(this).children('i'); // selects the specific child i of h3 clicked
+        $('.headings > i').not(icon).removeClass('rotate'); // slects all the 'i' elements which are not this.i (means not 'i' element of h3 clicked) and removes rotate class since all these are not selected or clicked ones
+        $(icon).toggleClass('rotate'); // toggleClass rotate on clicked h3 => i
+	   });
+	  }); 
+	
+
+</script>
+</body>
+</html>
